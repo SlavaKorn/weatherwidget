@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="testtask_weatherwidget_weatherdata" resource="default" engine="innodb" comment="testtask_weatherwidget_weatherdata Table">
+		<column xsi:type="smallint" name="weatherdata_id" padding="6" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="weatherdata_id"/>
+		</constraint>
+        <column name="city" nullable="true" xsi:type="text" comment="City"/>
+		<column name="weather_main" nullable="true" xsi:type="text" comment="Weather Description"/>
+		<column name="main_temp" nullable="true" xsi:type="float" comment="Temperature"/>
+		<column name="main_humidity" nullable="true" xsi:type="int" comment="Humidity" identity="false"/>
+        <column name="created_at" xsi:type="timestamp" comment="Created At" on_update="false" default="CURRENT_TIMESTAMP"/>
+	</table>
+</schema>

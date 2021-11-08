@@ -1,0 +1,31 @@
+<div data-bind="scope: 'weatherWidget'">
+    <!-- ko if: weatherData().weather_main -->
+
+    <h2 data-bind="text: 'Weather in ' + weatherData().city ">
+    </h2>
+    <p data-bind="text: weatherData().weather_main + ' | Temperature: ' + weatherData().main_temp + ' | Humidity: ' + weatherData().main_humidity ">
+
+    </p>
+    <!-- /ko -->
+    <!-- ko ifnot: weatherData().weather_main -->
+    <div class="loading-spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+
+    <!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "weatherWidget": {
+                        "component": "TestTask_WeatherWidget/js/view/weatherWidget"
+                    }
+                }
+            }
+        }
+    }
+</script>

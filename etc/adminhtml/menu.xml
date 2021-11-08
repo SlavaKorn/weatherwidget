@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="TestTask::top_level" title="Test Task" module="TestTask_WeatherWidget" sortOrder="9999" resource="Magento_Backend::content"/>
+		<add id="TestTask_WeatherWidget::testtask_weatherwidget_weatherdata" title="Weather Data" module="TestTask_WeatherWidget" sortOrder="9999" resource="Magento_Backend::content" parent="TestTask::top_level" action="testtask_weatherwidget/weatherdata/index"/>
+	</menu>
+</config>

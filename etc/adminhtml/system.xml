@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="test_task" translate="label" sortOrder="999">
+			<label>Test task</label>
+		</tab>
+		<section id="weather" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<label>Weather</label>
+			<tab>test_task</tab>
+			<resource>TestTask_WeatherWidget::config_testtask_weatherwidget</resource>
+			<group id="general" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>General</label>
+				<field id="enable" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Is enable</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="api_key" type="text" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>API Key</label>
+					<comment/>
+                    <depends>
+                        <field id="weather/general/enable">1</field>
+                    </depends>
+				</field>
+				<field id="units" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Units</label>
+					<comment/>
+					<source_model>TestTask\WeatherWidget\Model\Config\Source\Units</source_model>
+                    <depends>
+                        <field id="weather/general/enable">1</field>
+                    </depends>
+				</field>
+                <field id="city" type="text" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                    <label>City</label>
+                    <comment>City name, state code and country code divided by comma, Please, refer to ISO 3166 for the state codes or country codes.
+                        You can specify the parameter not only in English. In this case, the API response should be returned in the same language as the language of requested location name if the location is in our predefined list of more than 200,000 locations.</comment>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="weather/general/enable">1</field>
+                    </depends>
+                </field>
+			</group>
+		</section>
+	</system>
+</config>

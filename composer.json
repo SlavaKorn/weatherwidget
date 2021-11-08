@@ -1,0 +1,22 @@
+{
+    "name": "testtask/module-weatherwidget",
+    "description": "Weather Widget",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Slava Korniienko",
+            "email": "sk@barwenock.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "TestTask\\WeatherWidget\\": ""
+        }
+    }
+}
